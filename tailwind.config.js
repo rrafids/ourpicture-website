@@ -11,7 +11,7 @@ module.exports = {
           DEFAULT: "#FB8500",
         },
         secondary: {
-          DEFAULT: "#CACACAs"
+          DEFAULT: "#CACACA"
         }
       },
       animation: {
