@@ -43,26 +43,35 @@ function Header () {
         <DocumentAddIcon className='text-secondary cursor-pointer' width={25} />
       </Link>
 
-      <div
-        className='flex items-center gap-2 text-sm font-semibold cursor-pointer'
-        onClick={() => setIsLogoutDropdownActive(!isLogoutDropdownActive)}
-      >
-        <Image
-          className='rounded-full'
-          src={user.creds.profile_picture}
-          width='30'
-          height='30'
-          alt='profile_picture'
-        />
-        <p className='hidden sm:block'>
-          {user.creds.username}
-        </p>
+      <div class='relative inline-block text-left'>
+        <div
+          className='flex items-center gap-2 text-sm font-semibold cursor-pointer'
+          onClick={() => setIsLogoutDropdownActive(!isLogoutDropdownActive)}
+        >
+          <Image
+            className='rounded-full'
+            src={user.creds.profile_picture}
+            width='30'
+            height='30'
+            alt='profile_picture'
+          />
+          <p className='hidden sm:block'>
+            {user.creds.username}
+          </p>
+        </div>
+
         {isLogoutDropdownActive &&
           <div
-            className='relative top-10 right-20 text-xs bg-white py-2 px-3 text-red-600 rounded-lg shadow'
-            onClick={e => onLogout(e)}
+            class='origin-top-right absolute right-0 mt-2 w-24 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none'
+            role='menu'
+            aria-orientation='vertical'
+            aria-labelledby='menu-button'
+            tabindex='-1'
           >
-            <div className='flex'>
+            <div
+              className='flex py-2 px-3 space-x-2 items-center text-sm text-red-600 cursor-pointer'
+              onClick={e => onLogout(e)}
+            >
               <LogoutIcon width='20' />
               <p>Logout</p>
             </div>
